@@ -1,31 +1,77 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Special Message</title>
-    <style>
-        body {
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
-            text-align: center;
-            font-family: Arial;
-            padding-top: 100px;
-        }
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            width: 400px;
-            margin: auto;
-            box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
-        }
-        h1 {
-            color: #ff4e50;
-        }
-    </style>
+    <title>Celebration</title>
+
+</head>
+<head>
+    <title>Celebration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Cards/style.css' %}">
 </head>
 <body>
-    <div class="card">
-        <h1>🎉 {{ card.recipient_name }} 🎉</h1>
-        <p>{{ card.message }}</p>
+<div class="flares"></div>
+
+<div class="card">
+
+    <div class="message-box" id="messageBox" style="display: none;">
+        <h1>🎉 Serena, My love 💛🎉</h1>
+        <p>
+            Hey love, I just wanted to remind you how special you are to me.
+            Your smile, your heart, and the way you care for others make my world
+            brighter every single day. I’m really grateful to have you in my life. 💛💖
+        </p>
     </div>
+
+    <button class="open-btn" id="openBtn">
+        💌 Made from Love, 
+        With Love , 
+        for Love
+    </button>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const flareContainer = document.querySelector('.flares');
+
+    function createFlare() {
+        const flare = document.createElement('div');
+        flare.classList.add('flare');
+
+        flare.innerHTML = "💖";  // change to 💖 if you want hearts
+
+        flare.style.left = Math.random() * 100 + "vw";
+        flare.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+        flareContainer.appendChild(flare);
+
+        setTimeout(() => {
+            flare.remove();
+        }, 5000);
+    }
+
+    setInterval(createFlare, 150);
+    const openBtn = document.getElementById("openBtn");
+const messageBox = document.getElementById("messageBox");
+
+openBtn.addEventListener("click", function() {
+
+    openBtn.style.display = "none";
+
+    messageBox.style.display = "block";
+
+    setTimeout(() => {
+        messageBox.style.opacity = "1";
+        messageBox.style.transform = "scale(1)";
+    }, 50);
+
+});
+});
+
+</script>
+
 </body>
 </html>

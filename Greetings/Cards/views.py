@@ -10,5 +10,5 @@ def home(request):
 
 def view_card(request):
     name = request.GET.get('name', 'Serena, My Love')
-    message = request.GET.get('msg', 'Hey love, I just wanted to remind you how special you are to me. Your smile, your heart, and the way you care for others make my world brighter every single day. I’m really grateful to have you in my life. 💛')
+    message = request.GET.get('msg', 'Love')
     return render(request, 'cards/card.html', {'card': {'recipient_name': name, 'message': message}})
