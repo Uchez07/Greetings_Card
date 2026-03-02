@@ -3,14 +3,11 @@
 <html>
 <head>
     <title>Celebration</title>
-
-</head>
-<head>
-    <title>Celebration</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'Cards/style.css' %}">
 </head>
+
 <body>
+
 <div class="flares"></div>
 
 <div class="card">
@@ -25,9 +22,7 @@
     </div>
 
     <button class="open-btn" id="openBtn">
-        💌 Made from Love, 
-        With Love , 
-        for Love
+        💌 Made from Love, With Love, for Love
     </button>
 
 </div>
@@ -41,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const flare = document.createElement('div');
         flare.classList.add('flare');
 
-        flare.innerHTML = "💖";  // change to 💖 if you want hearts
+        flare.innerHTML = "💖";
 
-        flare.style.left = Math.random() * 100 + "vw";
+        flare.style.left = Math.random() * window.innerWidth + "px";
         flare.style.animationDuration = (Math.random() * 3 + 2) + "s";
 
         flareContainer.appendChild(flare);
@@ -54,23 +49,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     setInterval(createFlare, 150);
+
     const openBtn = document.getElementById("openBtn");
-const messageBox = document.getElementById("messageBox");
+    const messageBox = document.getElementById("messageBox");
 
-openBtn.addEventListener("click", function() {
+    openBtn.addEventListener("click", function() {
+        openBtn.style.display = "none";
+        messageBox.style.display = "block";
 
-    openBtn.style.display = "none";
-
-    messageBox.style.display = "block";
-
-    setTimeout(() => {
-        messageBox.style.opacity = "1";
-        messageBox.style.transform = "scale(1)";
-    }, 50);
+        setTimeout(() => {
+            messageBox.style.opacity = "1";
+            messageBox.style.transform = "scale(1)";
+        }, 50);
+    });
 
 });
-});
-
 </script>
 
 </body>
